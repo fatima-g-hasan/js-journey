@@ -24,5 +24,11 @@ function generateReports(students) {
     } else {
       grade = "F";
     }
+
+    return {
+      name: student.name,
+      average,
+      grade,
+    };
   });
 }
