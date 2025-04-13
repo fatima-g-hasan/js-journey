@@ -10,5 +10,7 @@ function generateReports(students) {
   return students.map((student) => {
     const total = student.scores.reduce((sum, score) => sum + score, 0);
     const average = total / student.scores.length;
+
+    let grade = "";
   });
 }
