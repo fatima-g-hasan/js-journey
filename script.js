@@ -32,3 +32,5 @@ function generateReports(students) {
     };
   });
 }
+
+console.log(generateReports(students));
