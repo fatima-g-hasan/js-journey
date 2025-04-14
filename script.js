@@ -65,4 +65,8 @@ class BankAccount {
       console.log(`New balance is ${this.balance}`);
     }
   }
+
+  getSummary() {
+    console.log(`${this.ownerName}'s balance is ${this.balance} `);
+  }
 }
