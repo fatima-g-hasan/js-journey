@@ -45,14 +45,16 @@ class BankAccount {
 
   deposit(amount) {
     this.balance += amount;
-    console.log(`The deposited amount is ${amount}`);
-    console.log(`The total amount is ${this.balance}`);
+    console.log(
+      `The deposited amount in ${this.ownerName}'s account is $${amount}`
+    );
   }
 
   withdraw(amount) {
     this.balance -= amount;
-    console.log(`The amount withdrew is ${amount}`);
-    console.log(`The total amount is ${this.balance}`);
+    console.log(
+      `The amount withdrew from ${this.ownerName}'s account is $${amount}`
+    );
   }
 
   transferTo(anotherAccount, amount) {
@@ -61,12 +63,21 @@ class BankAccount {
     } else {
       this.balance -= amount;
       anotherAccount.balance += amount;
-      console.log(`Transferred ${amount} to ${anotherAccount.ownerName}`);
-      console.log(`New balance is ${this.balance}`);
+      console.log(
+        `${this.ownerName} transferred $${amount} to ${anotherAccount.ownerName}`
+      );
     }
   }
 
   getSummary() {
-    console.log(`${this.ownerName}'s balance is ${this.balance} `);
+    console.log(`${this.ownerName}'s balance is $${this.balance} `);
   }
 }
+
+const acc1 = new BankAccount("John", 500);
+const acc2 = new BankAccount("Sara", 300);
+acc1.transferTo(acc2, 200);
+acc1.getSummary();
+acc2.getSummary();
+acc1.deposit(100);
+acc1.getSummary();
