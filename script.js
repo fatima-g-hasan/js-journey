@@ -48,4 +48,10 @@ class BankAccount {
     console.log(`The deposited amount is ${amount}`);
     console.log(`The total amount is ${this.balance}`);
   }
+
+  withdraw(amount) {
+    this.balance -= amount;
+    console.log(`The amount withdrew is ${amount}`);
+    console.log(`The total amount is ${this.balance}`);
+  }
 }
