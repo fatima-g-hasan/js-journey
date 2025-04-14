@@ -54,4 +54,15 @@ class BankAccount {
     console.log(`The amount withdrew is ${amount}`);
     console.log(`The total amount is ${this.balance}`);
   }
+
+  transferTo(anotherAccount, amount) {
+    if (amount > this.balance) {
+      console.log("Not enough balance");
+    } else {
+      this.balance -= amount;
+      anotherAccount.balance += amount;
+      console.log(`Transferred ${amount} to ${anotherAccount.ownerName}`);
+      console.log(`New balance is ${this.balance}`);
+    }
+  }
 }
