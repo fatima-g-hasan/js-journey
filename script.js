@@ -41,11 +41,15 @@ class BankAccount {
   constructor(ownerName, initialBalance) {
     this.ownerName = ownerName;
     this.balance = initialBalance;
+    this.history = [];
   }
 
   deposit(amount) {
     this.balance += amount;
     console.log(
+      `The deposited amount in ${this.ownerName}'s account is $${amount}`
+    );
+    this.history.push(
       `The deposited amount in ${this.ownerName}'s account is $${amount}`
     );
   }
@@ -55,22 +59,39 @@ class BankAccount {
     console.log(
       `The amount withdrew from ${this.ownerName}'s account is $${amount}`
     );
+    this.history.push(
+      `The amount withdrew from ${this.ownerName}'s account is $${amount}`
+    );
   }
 
   transferTo(anotherAccount, amount) {
     if (amount > this.balance) {
       console.log("Not enough balance");
+      this.history.push("Can't transfer to balance, insufficient funds");
     } else {
       this.balance -= amount;
       anotherAccount.balance += amount;
       console.log(
         `${this.ownerName} transferred $${amount} to ${anotherAccount.ownerName}`
       );
+      this.history.push(
+        `${this.ownerName} transferred $${amount} to ${anotherAccount.ownerName}`
+      );
+      anotherAccount.history.push(
+        `${anotherAccount.ownerName}'s account received $${amount} from ${this.ownerName}`
+      );
     }
   }
 
   getSummary() {
     console.log(`${this.ownerName}'s balance is $${this.balance} `);
+  }
+
+  printHistory() {
+    console.log(`${this.ownerName}'s Transaction History:`);
+    this.history.forEach((info) => {
+      console.log(info);
+    });
   }
 }
 
@@ -81,3 +102,6 @@ acc1.getSummary();
 acc2.getSummary();
 acc1.deposit(100);
 acc1.getSummary();
+acc1.transferTo(acc2, 100);
+acc1.printHistory();
+acc2.printHistory();
