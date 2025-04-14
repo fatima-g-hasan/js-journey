@@ -39,6 +39,13 @@ console.log(generateReports(students));
 
 class BankAccount {
   constructor(ownerName, initialBalance) {
-    (this.ownerName = ownerName), (initialBalance = 0);
+    this.ownerName = ownerName;
+    this.balance = initialBalance;
+  }
+
+  deposit(amount) {
+    this.balance += amount;
+    console.log(`The deposited amount is ${amount}`);
+    console.log(`The total amount is ${this.balance}`);
   }
 }
