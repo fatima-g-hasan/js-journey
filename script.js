@@ -34,3 +34,11 @@ function generateReports(students) {
 }
 
 console.log(generateReports(students));
+
+//Question 2:
+
+class BankAccount {
+  constructor(ownerName, initialBalance) {
+    (this.ownerName = ownerName), (initialBalance = 0);
+  }
+}
