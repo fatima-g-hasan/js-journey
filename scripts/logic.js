@@ -118,5 +118,7 @@ addBtn.addEventListener("click", () => {
   if (text !== "") {
     const li = document.createElement("li");
     li.textContent = text;
+    taskList.appendChild(li);
+    taskInput.value = "";
   }
 });
