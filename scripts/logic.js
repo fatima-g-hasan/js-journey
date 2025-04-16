@@ -105,3 +105,9 @@ acc1.getSummary();
 acc1.transferTo(acc2, 100);
 acc1.printHistory();
 acc2.printHistory();
+
+//Question 3:
+
+const addBtn = document.getElementById("add-btn");
+const taskInput = document.getElementById("task-input");
+const taskList = document.getElementById("task-list");
