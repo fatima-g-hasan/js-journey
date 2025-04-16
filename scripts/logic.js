@@ -111,3 +111,7 @@ acc2.printHistory();
 const addBtn = document.getElementById("add-btn");
 const taskInput = document.getElementById("task-input");
 const taskList = document.getElementById("task-list");
+
+addBtn.addEventListener("click", () => {
+  const text = taskInput.value;
+});
