@@ -114,4 +114,9 @@ const taskList = document.getElementById("task-list");
 
 addBtn.addEventListener("click", () => {
   const text = taskInput.value;
+
+  if (text !== "") {
+    const li = document.createElement("li");
+    li.textContent = text;
+  }
 });
