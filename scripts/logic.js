@@ -7,13 +7,16 @@ const students = [
 ];
 
 function generateReports(students) {
+  //O(n) * O(1) = O(n)
   return students.map((student) => {
-    const total = student.scores.reduce((sum, score) => sum + score, 0);
+    //students.map is O(n)
+    const total = student.scores.reduce((sum, score) => sum + score, 0); //student.score.reduce is O(1)
     const average = total / student.scores.length;
 
     let grade = "";
 
     if (average >= 90) {
+      //O(1)
       grade = "A";
     } else if (average >= 80) {
       grade = "B";
@@ -33,18 +36,20 @@ function generateReports(students) {
   });
 }
 
-console.log(generateReports(students));
+console.log(generateReports(students)); // O(1)
 
 //Question 2:
 
 class BankAccount {
   constructor(ownerName, initialBalance) {
+    // O(1)
     this.ownerName = ownerName;
     this.balance = initialBalance;
     this.history = [];
   }
 
   deposit(amount) {
+    // O(1)
     this.balance += amount;
     console.log(
       `The deposited amount in ${this.ownerName}'s account is $${amount}`
@@ -55,6 +60,7 @@ class BankAccount {
   }
 
   withdraw(amount) {
+    // O(1)
     this.balance -= amount;
     console.log(
       `The amount withdrew from ${this.ownerName}'s account is $${amount}`
@@ -65,6 +71,7 @@ class BankAccount {
   }
 
   transferTo(anotherAccount, amount) {
+    // O(1)
     if (amount > this.balance) {
       console.log("Not enough balance");
       this.history.push("Can't transfer to balance, insufficient funds");
@@ -84,10 +91,12 @@ class BankAccount {
   }
 
   getSummary() {
+    // O(1)
     console.log(`${this.ownerName}'s balance is $${this.balance} `);
   }
 
   printHistory() {
+    // O(n)
     console.log(`${this.ownerName}'s Transaction History:`);
     this.history.forEach((info) => {
       console.log(info);
